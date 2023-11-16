@@ -14,6 +14,7 @@ def encrypt_text(key, input_text):
     result = [[] for _ in range(len(key))]  # Створив матрицю і заповнив її в порядку що вказує ключ а потім
     for index, element in enumerate(sum_lists):  # перетворив це в стрічку
         result[key[index % len(key)] - 1].append(element)
+
     return ''.join(chain.from_iterable(result))
 
 
@@ -22,7 +23,7 @@ if __name__ == '__main__':
                         "INCOMPLETECOLUMNARWITHALTERNATINGSINGLELETTERSANDDIGRAPHS") == "CECRTEGLENPHPLUTNANTEIOMOWIRSITDDSINTNALINESAALEMHATGLRGR"
     assert encrypt_text("12", "HELLOWORLD") == "HELOORDLWL"
     assert encrypt_text("3412", "THISISJUSTATEST") == "SITASTTHJUESIST"
-    assert encrypt_text("165432", "WORKSMARTNOTHARDT") == "WONOTARDMRKSHART"
+    assert encrypt_text("165432", "WORKSMARTNOTHARD") == "WONOTARDMRKSHART"
     assert encrypt_text("231", "LLOHE") == "HELLO"
 
 
