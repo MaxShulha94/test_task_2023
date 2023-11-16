@@ -1,11 +1,11 @@
 from itertools import chain
 
 
-def encrypt_text(key, inner_text):
+def encrypt_text(key, input_text):
     key = [int(digit) for digit in str(key)]  # Перетворив ключ з формату str на list і розділив на елементи
-    text_list = [inner_text[_:_ + 2] for _ in range(0, len(inner_text))]  # Розділив текст на елементи в списку
+    text_list = [input_text[_:_ + 2] for _ in range(0, len(input_text))]  # Розділив текст на елементи в списку
     odd_list = [text_list[_] for _ in range(0, len(text_list), 3)]  # Витягнув непарні елементи
-    even_list = [inner_text[_] for _ in range(2, len(inner_text), 3)]  # Витягнув парні елементи
+    even_list = [input_text[_] for _ in range(2, len(input_text), 3)]  # Витягнув парні елементи
     sum_lists = []
     for odd, even in zip(odd_list, even_list):  # Злив списки в необхідному порядку в один
         sum_lists.extend([odd, even])
